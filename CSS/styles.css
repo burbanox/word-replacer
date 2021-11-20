@@ -1,0 +1,10 @@
+:root
+{
+    --main-font : 'Roboto', sans-serif;
+    --main-color : #efeef0;
+    --secondary-color : #1f1d1d;
+    --weigth-main-header : 30;
+    --weigth-secondary-header : 20;
+    --min-width : 320px;
+    --max-width : 1800px; 
+}
