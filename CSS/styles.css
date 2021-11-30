@@ -1,10 +1,143 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 :root
 {
     --main-font : 'Roboto', sans-serif;
-    --main-color : #efeef0;
+    --main-color : #fff;
     --secondary-color : #1f1d1d;
-    --weigth-main-header : 30;
-    --weigth-secondary-header : 20;
+    --third-color : #efeef0;
+    --main-header-size : 3.0rem;
+    --secondary-header-size : 2.0rem;
+    --default-font-size : 1.6rem;
+    --secondary-font-size : 1.4rem;
     --min-width : 320px;
     --max-width : 1800px; 
+}
+html
+{
+    font-family: var(--main-font);
+    font-size: 62.5%;
+}
+body
+{
+    min-height: var(--min-width);
+    max-width: var(--max-width);
+}
+ul
+{
+    list-style: none;
+}
+header
+{
+    display: flex;
+    align-items: center;
+    background-color: var(--secondary-color);
+    padding: 30px 0px 30px 22px;
+}
+header img
+{
+    width: 50px;
+    height: 50px;
+    margin-right: 14px;
+}
+header h1
+{
+    font-size: var(--main-header-size);
+    font-weight: bold;
+    color : var(--main-color);
+}
+main
+{
+    background-color: var(--main-color);
+    padding: 61px 30px 110px 30px;
+    color: var(--secondary-color);
+}
+.cheking-option
+{
+    margin-bottom: 40px;
+}
+.check
+{
+    display: flex;
+    align-items: center;
+    margin-bottom: 14px;
+}
+.check input
+{
+    width: 25px;
+    height: 25px;
+    margin-right: 20px;
+}
+.check p
+{
+    font-size: var(--default-font-size);
+}
+.check-advertisement
+{
+    font-style: italic;
+    font-size: var(--secondary-font-size);
+    line-height: 2.0rem;
+}
+.inputs
+{
+    margin-bottom: 74px;
+}
+.input-data
+{
+    width: 100%;
+    height: 274px;
+    border: 3px solid #812c2c;
+    margin-bottom: 50px;
+    padding: 18px 25px 18px 25px;
+    border-radius: 25px;
+    background-color: var(--third-color);
+}
+.input-images
+{
+    display: block;
+    width: 38px;
+    height: 38px;
+}
+#button-minus
+{
+    margin: 0px auto 15px auto;
+}
+#button-plus
+{
+    margin: 18px auto 0px auto;
+}
+.standard-input
+{
+    width: 100%;
+    height: 41px;
+    border-radius: 20px;
+    padding: 10px 10px 10px 22px;
+    margin-bottom: 18px;
+    font-size: 1.6rem;
+    color: var(--secondary-color);
+    font-family: var(--main-font);
+}
+.standard-input::placeholder
+{
+    opacity: 1;
+    color: var(--secondary-color);
+    font-size: var(--default-font-size);
+    font-family: var(--main-font);
+    font-style: italic;
+}
+#replace-button
+{
+    display: block;
+    width: 131px;
+    height: 41px;
+    border-radius: 15px;
+    background-color: #f32a2a;
+    color: var(--main-color);
+    font-family: var(--main-font);
+    font-size: var(--default-font-size);
+    margin: 0 auto;
 }
