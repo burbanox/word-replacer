@@ -31,6 +31,10 @@ ul
 {
     list-style: none;
 }
+button
+{
+    cursor: pointer;
+}
 header
 {
     display: flex;
@@ -101,6 +105,7 @@ main
     display: block;
     width: 38px;
     height: 38px;
+    cursor: pointer;
 }
 #button-minus
 {
@@ -140,4 +145,149 @@ main
     font-family: var(--main-font);
     font-size: var(--default-font-size);
     margin: 0 auto;
+}
+.text-area-buttons
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+#button-copy
+{
+    width: 75px;
+    height: 50px;
+    border-radius: 24px;
+    border: 2px solid var(--secondary-color);
+    background-color: transparent;
+    font-size: var(--default-font-size);
+    color: var(--secondary-color);
+    font-family: var(--main-font);
+}
+#area-texto
+{
+    width: 100%;
+    height: 415px;
+}
+.general-button
+{
+    width: 42px;
+    height: 42px;
+    background-color: transparent;
+    border-radius: 50%;
+    border: 2px solid var(--secondary-color);
+}
+#backward-arrow
+{
+    background-image: url("../assets/backward_arrow.png");
+    background-repeat: no-repeat;
+    background-size: 25px 25px;
+    background-position: center;
+    margin-right: 5px;
+}
+#foward-arrow
+{
+    background-image: url("../assets/foward_arrow.png");
+    background-repeat: no-repeat;
+    background-size: 25px 25px;
+    background-position: center;
+    margin-left: 5px;
+}
+#delete-button
+{
+    background-image: url("../assets/trash-can.png");
+    background-repeat: no-repeat;
+    background-size: 25px 25px;
+    background-position: center;
+    margin-left: 5px;
+}
+#area-texto
+{
+    border-radius: 32px;
+    border: 2px solid var(--secondary-color);
+    padding: 15px;
+    font-family: var(--main-font);
+    color: var(--secondary-color);
+    font-size: var(--default-font-size);
+}
+footer
+{
+    background-color: var(--secondary-color);
+    padding: 35px 33px 28px 33px;
+    color: var(--main-color);
+}
+.section-name
+{
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+}
+.section-name img
+{
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+.section-name h1
+{
+    font-size: var(--main-header-size);
+}
+.title-section
+{
+    font-size: var(--secondary-header-size);
+    margin-bottom: 25px;
+}
+.gmail-section p
+{
+    font-size: var(--default-font-size);
+    margin-bottom: 25px;
+}
+.contact-list
+{
+    display: flex;
+    justify-content: space-between;
+}
+.contact-list span
+{
+    display: inline-block;
+    width: 43px;
+    height: 43px;
+    border-radius: 50%;
+    border: 3px solid var(--main-color);
+}
+.contact-list li:first-child span
+{
+    background-image: url("../assets/linkedin-white.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 25px 25px;
+}
+.contact-list li:nth-child(2) span
+{
+    background-image: url("../assets/github-white.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border: none;
+}
+.contact-list li:nth-child(3) span
+{
+    background-image: url("../assets/instagram-white.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 25px 25px;
+}
+.contact-list li:last-child span
+{
+    background-image: url("../assets/twitter-white.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 25px 25px;
+}
+.credits
+{
+    margin-top: 100px;
+    text-align: center;
+    color: var(--main-color);
+    font-size: var(--secondary-font-size);
 }
