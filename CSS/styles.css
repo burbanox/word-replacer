@@ -63,6 +63,9 @@ main
 .cheking-option
 {
     margin-bottom: 40px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
 }
 .check
 {
@@ -85,6 +88,12 @@ main
     font-style: italic;
     font-size: var(--secondary-font-size);
     line-height: 2.0rem;
+}
+.text-box > *
+{
+    max-width: 415px;
+    margin-right: auto;
+    margin-left: auto;
 }
 .inputs
 {
@@ -286,8 +295,17 @@ footer
 }
 .credits
 {
-    margin-top: 100px;
+    margin-top: 70px;
     text-align: center;
     color: var(--main-color);
     font-size: var(--secondary-font-size);
+}
+.icon-credits
+{
+    margin-bottom: 20px;
+    line-height: 2.0rem;
+}
+.icon-credits a
+{
+    color: red;
 }

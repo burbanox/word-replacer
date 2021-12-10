@@ -1,0 +1,19 @@
+.text-box
+{
+    display: flex;
+    justify-content: space-evenly;
+    max-width: 900px;
+    margin: 0 auto;
+}
+.text-box>*
+{
+    margin: 0;
+    width: 350px;
+}
+.inputs
+{
+    padding-top: 65px;
+}.input-data
+{
+    height: 326.4px;
+}
