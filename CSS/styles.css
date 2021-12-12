@@ -108,6 +108,14 @@ main
     padding: 18px 25px 18px 25px;
     border-radius: 25px;
     background-color: var(--third-color);
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+    scroll-snap-type: proximity;
+}
+.input-item
+{
+    margin-top: 30px;
+    scroll-snap-align: center;
 }
 .input-images
 {
@@ -115,6 +123,10 @@ main
     width: 38px;
     height: 38px;
     cursor: pointer;
+}
+.hidden
+{
+    display: none;
 }
 #button-minus
 {
