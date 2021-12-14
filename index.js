@@ -5,14 +5,15 @@ const InputItem = document.getElementById("input-item")
 const InputOptions = document.getElementById("input-options")
 const INPUT_1 = document.getElementById("input-1")
 const INPUT_2 = document.getElementById("input-2")
-const InputOriginals = Array.from(document.getElementsByClassName("input-original"))
-const InputReplacers = Array.from(document.getElementsByClassName("input-replacer"))
+let InputOriginals = Array.from(document.getElementsByClassName("input-original"))
+let InputReplacers = Array.from(document.getElementsByClassName("input-replacer"))
 const CopyButton = document.getElementById("button-copy")
 const backwardButton = document.getElementById("backward-arrow")
-const fowardArrow = document.getElementById("foward-arrow")
+const fowardButton = document.getElementById("foward-arrow")
 const deleteButton = document.getElementById("delete-button")
 const replaceButton = document.getElementById("replace-button")
 const textArea = document.getElementById("area-texto")
+const replaceWordsBox = document.getElementById("replace-words-checker")
 
 //this variable contains the entered texts in the text area
 let textHistorial = []
@@ -28,7 +29,10 @@ CopyButton.onclick = async ()=>
 
 deleteButton.onclick = ()=>
 {
-    textHistorial.push(textArea.value)
+    if(textArea.value===-1 || textHistorial.indexOf(textArea.value)!==textHistorial.length -1)
+    {
+        textHistorial.push(textArea.value)
+    }
     historialIndex = textHistorial.length - 1
     textArea.value = ""
 }
@@ -39,14 +43,22 @@ replaceButton.onclick = ()=>
     let textOriginals = InputOriginals.map((element) => element.value)
     let textReplacers = InputReplacers.map((element) => element.value)
     let textoOriginal = textArea.value
-    let newText = textArea.value
+    let newText = ""
 
-    for(let i=0;i<textOriginals.length;i++)
+    if(replaceWordsBox.cheked)
     {
-        newText = newText.replaceAll(textOriginals[i],textReplacers[i])
-    }
+        //en prosceso....
+    }else
+    {
+        let newText = textArea.value
 
-    textArea.value = newText
+        for(let i=0;i<textOriginals.length;i++)
+        {
+            newText = newText.replaceAll(textOriginals[i],textReplacers[i])
+        }
+    
+        textArea.value = newText
+    }
 
     //esto evita que se repitan mismos elementos en el historial
     if( textHistorial.indexOf(textoOriginal)===-1 || textHistorial.indexOf(textoOriginal)!==textHistorial.length -1)
@@ -64,12 +76,23 @@ replaceButton.onclick = ()=>
 
 backwardButton.onclick = ()=>
 {
-    console.log(historialIndex)
     if(historialIndex!==0)
     {
         historialIndex-=1
         textArea.value = textHistorial[historialIndex]
     }
+    console.log(textHistorial)
+}
+
+
+fowardButton.onclick = () =>
+{
+    if(historialIndex!==textHistorial.length -1)
+    {
+        historialIndex+=1
+        textArea.value = textHistorial[historialIndex]
+    }
+    console.log(textHistorial)
 }
 
 
@@ -83,9 +106,17 @@ function addAtributes(element,originalElement)
     }
 }
 
+
 function deleteElement(event)
 {
     let referenceOfInputItem = event.target.parentElement.parentElement
+    let referenceOfInputOriginal = referenceOfInputItem.children[0].children[1]
+    let referenceOfInputReplacer = referenceOfInputItem.children[0].children[2]
+
+    //remove from array input original and input replacer
+    InputOriginals = InputOriginals.filter((element)=> element!==referenceOfInputOriginal)
+    InputReplacers = InputReplacers.filter((element)=> element!==referenceOfInputReplacer)
+
     //remove the input item from input data
     referenceOfInputItem.remove()
 }
