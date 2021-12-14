@@ -112,6 +112,16 @@ main
     overscroll-behavior-y: contain;
     scroll-snap-type: proximity;
 }
+.input-data::-webkit-scrollbar
+{
+    width: 10px;
+}
+.input-data::-webkit-scrollbar-thumb
+{
+    background-color: var(--secondary-color);
+    border: 5px solid transparent;
+    border-radius: 999px;
+}
 .input-item
 {
     margin-top: 30px;
@@ -134,7 +144,7 @@ main
 }
 #button-plus
 {
-    margin: 18px auto 0px auto;
+    margin:0px auto 20px auto;
 }
 .standard-input
 {
