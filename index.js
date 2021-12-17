@@ -19,12 +19,51 @@ const replaceWordsBox = document.getElementById("replace-words-checker")
 let textHistorial = []
 let historialIndex = 0
 
+//In this arrays the strings wil be saved in case the function "only words" are activated
+let InputOriginalsWithSpaces = []
+let InputReplacersWithSpaces = []
+
+
 CopyButton.onclick = async ()=>
 {
     textArea.select()
     await navigator.clipboard.writeText(textArea.value)
     await navigator.clipboard.readText()
 }
+
+
+replaceWordsBox.addEventListener("click",(event)=>
+{
+    
+    if(!replaceWordsBox.checked)
+    {
+        //Logic to add the spaces
+
+        InputOriginals.forEach((element,index) => 
+        {
+            if(index <= InputOriginalsWithSpaces.length - 1)
+            {
+                element.value = InputOriginalsWithSpaces[index]
+            }
+        })
+        InputReplacers.forEach((element,index) => 
+        {
+            if(index <= InputReplacers.length - 1)
+            {
+                element.value = InputReplacersWithSpaces[index]
+            }
+        }) 
+    }else
+    {
+        //Logic to delete the spaces
+
+        InputOriginalsWithSpaces = InputOriginals.map(element => element.value)
+        InputReplacersWithSpaces = InputReplacers.map(element => element.value)
+        InputOriginals.forEach(element => element.value = element.value.replace(/\s+/g,''))
+        console.log(InputOriginals)
+        InputReplacers.forEach(element => element.value = element.value.replace(/\s+/g,""))
+    }
+})
 
 
 deleteButton.onclick = ()=>
@@ -45,7 +84,7 @@ replaceButton.onclick = ()=>
     let textoOriginal = textArea.value
     let newText = ""
 
-    if(replaceWordsBox.cheked)
+    if(replaceWordsBox.checked)
     {
         //en prosceso....
     }else
@@ -114,8 +153,22 @@ function deleteElement(event)
     let referenceOfInputReplacer = referenceOfInputItem.children[0].children[2]
 
     //remove from array input original and input replacer
-    InputOriginals = InputOriginals.filter((element)=> element!==referenceOfInputOriginal)
-    InputReplacers = InputReplacers.filter((element)=> element!==referenceOfInputReplacer)
+    InputOriginals = InputOriginals.filter((element,index) => 
+    {
+        if(element===referenceOfInputOriginal)
+        {
+            InputOriginalsWithSpaces.splice(index,1)
+        }
+        element!==referenceOfInputOriginal
+    })
+    InputReplacers = InputReplacers.filter((element,index) => 
+    {
+        if(element===referenceOfInputReplacer)
+        {
+            InputReplacersWithSpaces.splice(index,1)
+        }
+        element!==referenceOfInputReplacer
+    })
 
     //remove the input item from input data
     referenceOfInputItem.remove()
