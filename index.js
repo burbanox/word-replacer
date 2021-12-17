@@ -159,7 +159,7 @@ function deleteElement(event)
         {
             InputOriginalsWithSpaces.splice(index,1)
         }
-        element!==referenceOfInputOriginal
+        return element!==referenceOfInputOriginal
     })
     InputReplacers = InputReplacers.filter((element,index) => 
     {
@@ -167,7 +167,7 @@ function deleteElement(event)
         {
             InputReplacersWithSpaces.splice(index,1)
         }
-        element!==referenceOfInputReplacer
+        return element!==referenceOfInputReplacer
     })
 
     //remove the input item from input data
