@@ -19,9 +19,22 @@ const replaceWordsBox = document.getElementById("replace-words-checker")
 let textHistorial = []
 let historialIndex = 0
 
-//In this arrays the strings wil be saved in case the function "only words" are activated
-let InputOriginalsWithSpaces = []
-let InputReplacersWithSpaces = []
+
+// $(function() {
+//     $('.input-original').on('keypress', function(e) {
+//         if (e.which == 32 && replaceWordsBox.checked){
+//             console.log('Space Detected');
+//             return false;
+//         }
+//     });
+
+//     $('.input-replacer').on('keypress', function(e) {
+//         if (e.which == 32 && replaceWordsBox.checked){
+//             console.log('Space Detected');
+//             return false;
+//         }
+//     });
+// });
 
 
 CopyButton.onclick = async ()=>
@@ -32,38 +45,38 @@ CopyButton.onclick = async ()=>
 }
 
 
-replaceWordsBox.addEventListener("click",(event)=>
-{
+// replaceWordsBox.addEventListener("click",(event)=>
+// {
     
-    if(!replaceWordsBox.checked)
-    {
-        //Logic to add the spaces
+//     // if(!replaceWordsBox.checked)
+//     // {
+//     //     //Logic to add the spaces
 
-        InputOriginals.forEach((element,index) => 
-        {
-            if(index <= InputOriginalsWithSpaces.length - 1)
-            {
-                element.value = InputOriginalsWithSpaces[index]
-            }
-        })
-        InputReplacers.forEach((element,index) => 
-        {
-            if(index <= InputReplacers.length - 1)
-            {
-                element.value = InputReplacersWithSpaces[index]
-            }
-        }) 
-    }else
-    {
-        //Logic to delete the spaces
+//     //     InputOriginals.forEach((element,index) => 
+//     //     {
+//     //         if(index <= InputOriginalsWithSpaces.length - 1)
+//     //         {
+//     //             element.value = InputOriginalsWithSpaces[index]
+//     //         }
+//     //     })
+//     //     InputReplacers.forEach((element,index) => 
+//     //     {
+//     //         if(index <= InputReplacers.length - 1)
+//     //         {
+//     //             element.value = InputReplacersWithSpaces[index]
+//     //         }
+//     //     }) 
+//     // }else
+//     // {
+//     //     //Logic to delete the spaces
 
-        InputOriginalsWithSpaces = InputOriginals.map(element => element.value)
-        InputReplacersWithSpaces = InputReplacers.map(element => element.value)
-        InputOriginals.forEach(element => element.value = element.value.replace(/\s+/g,''))
-        console.log(InputOriginals)
-        InputReplacers.forEach(element => element.value = element.value.replace(/\s+/g,""))
-    }
-})
+//     //     InputOriginalsWithSpaces = InputOriginals.map(element => element.value)
+//     //     InputReplacersWithSpaces = InputReplacers.map(element => element.value)
+//     //     InputOriginals.forEach(element => element.value = element.value.replace(/\s+/g,''))
+//     //     console.log(InputOriginals)
+//     //     InputReplacers.forEach(element => element.value = element.value.replace(/\s+/g,""))
+//     // }
+// })
 
 
 deleteButton.onclick = ()=>
@@ -82,22 +95,31 @@ replaceButton.onclick = ()=>
     let textOriginals = InputOriginals.map((element) => element.value)
     let textReplacers = InputReplacers.map((element) => element.value)
     let textoOriginal = textArea.value
-    let newText = ""
+    let newText = textArea.value
 
     if(replaceWordsBox.checked)
     {
-        //en prosceso....
+        for(let i = 0;i<textOriginals.length;i++)
+        {
+            if(!/\s/.test(textOriginals[i]))
+            {
+
+                newText = newText.replace(new RegExp(`\\b${textOriginals[i]}\\b`),textReplacers[i])
+            }
+        }
+
     }else
     {
-        let newText = textArea.value
 
         for(let i=0;i<textOriginals.length;i++)
         {
             newText = newText.replaceAll(textOriginals[i],textReplacers[i])
         }
     
-        textArea.value = newText
     }
+
+
+    textArea.value = newText
 
     //esto evita que se repitan mismos elementos en el historial
     if( textHistorial.indexOf(textoOriginal)===-1 || textHistorial.indexOf(textoOriginal)!==textHistorial.length -1)
