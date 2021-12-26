@@ -20,63 +20,12 @@ let textHistorial = []
 let historialIndex = 0
 
 
-// $(function() {
-//     $('.input-original').on('keypress', function(e) {
-//         if (e.which == 32 && replaceWordsBox.checked){
-//             console.log('Space Detected');
-//             return false;
-//         }
-//     });
-
-//     $('.input-replacer').on('keypress', function(e) {
-//         if (e.which == 32 && replaceWordsBox.checked){
-//             console.log('Space Detected');
-//             return false;
-//         }
-//     });
-// });
-
-
 CopyButton.onclick = async ()=>
 {
     textArea.select()
     await navigator.clipboard.writeText(textArea.value)
     await navigator.clipboard.readText()
 }
-
-
-// replaceWordsBox.addEventListener("click",(event)=>
-// {
-    
-//     // if(!replaceWordsBox.checked)
-//     // {
-//     //     //Logic to add the spaces
-
-//     //     InputOriginals.forEach((element,index) => 
-//     //     {
-//     //         if(index <= InputOriginalsWithSpaces.length - 1)
-//     //         {
-//     //             element.value = InputOriginalsWithSpaces[index]
-//     //         }
-//     //     })
-//     //     InputReplacers.forEach((element,index) => 
-//     //     {
-//     //         if(index <= InputReplacers.length - 1)
-//     //         {
-//     //             element.value = InputReplacersWithSpaces[index]
-//     //         }
-//     //     }) 
-//     // }else
-//     // {
-//     //     //Logic to delete the spaces
-
-//     //     InputOriginalsWithSpaces = InputOriginals.map(element => element.value)
-//     //     InputReplacersWithSpaces = InputReplacers.map(element => element.value)
-//     //     InputOriginals.forEach(element => element.value = element.value.replace(/\s+/g,''))
-//     //     console.log(InputOriginals)
-//     //     InputReplacers.forEach(element => element.value = element.value.replace(/\s+/g,""))
-//     // }
-// })
 
 
 deleteButton.onclick = ()=>
