@@ -53,7 +53,7 @@ replaceButton.onclick = ()=>
             if(!/\s/.test(textOriginals[i]))
             {
 
-                newText = newText.replace(new RegExp(`\\b${textOriginals[i]}\\b`),textReplacers[i])
+                newText = newText.replaceAll(new RegExp(`\\b${textOriginals[i]}\\b`),textReplacers[i])
             }
         }
 
@@ -124,22 +124,8 @@ function deleteElement(event)
     let referenceOfInputReplacer = referenceOfInputItem.children[0].children[2]
 
     //remove from array input original and input replacer
-    InputOriginals = InputOriginals.filter((element,index) => 
-    {
-        if(element===referenceOfInputOriginal)
-        {
-            InputOriginalsWithSpaces.splice(index,1)
-        }
-        return element!==referenceOfInputOriginal
-    })
-    InputReplacers = InputReplacers.filter((element,index) => 
-    {
-        if(element===referenceOfInputReplacer)
-        {
-            InputReplacersWithSpaces.splice(index,1)
-        }
-        return element!==referenceOfInputReplacer
-    })
+    InputOriginals = InputOriginals.filter((element,index) => element!==referenceOfInputOriginal)
+    InputReplacers = InputReplacers.filter((element,index) => element !==referenceOfInputReplacer)
 
     //remove the input item from input data
     referenceOfInputItem.remove()
